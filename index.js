@@ -28,17 +28,22 @@ function promptPlayer () {
 
   prompt.get(['index'], function (err, result) {
     // Log the results.
-    bool ? marker = markers[0] : markers [1];
+    bool ? marker = markers[0] : marker = markers [1];
     console.log('You selected: ' + result.index + 'to mark ' + marker);
     board.markBoard(result.index, marker)
     console.log('New Board :')
     board.printBoard();
+    
+    //change turn
     bool = !bool;
+    console.log(bool);
+
+    board.eval() ? console.log(marker + ' won!') : promptPlayer()
+    
   });
 
 }
 
 promptPlayer();
-
 
 
